@@ -1,4 +1,8 @@
 <?php
+/**
+ * Определяются константы, URL сайта и подключается автозагрузчик композера
+ */
+
 //константа для отображения ошибок, 1 - показывать, 0 - скрываь(логгировать)
 define("DEBUG", 1);
 //константа корня сайта
@@ -18,4 +22,11 @@ define("CONF", ROOT . '/config');
 //константа шаблона по умолчанию
 define("LAYOUT", 'default');
 
-$app_path = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['PHP_SELF']}"; //http:/\
+$app_path = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['PHP_SELF']}"; //http://sitename.ru/public/index.php
+$app_path = preg_replace("/#[^/]+$#/",'', $app_path); //http://sitename.ru/public/
+$app_path = preg_replace("/public/",'', $app_path); //http://sitename.ru/
+
+define("PATH", $app_path);
+define("ADMIN", PATH . '/admin');
+
+require_once ROOT . '/vendor/autoload.php';
