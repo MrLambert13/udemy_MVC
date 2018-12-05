@@ -1,8 +1,5 @@
-#Кодировка по умолчанию utf-8
-                          AddDefaultCharset utf-8
-
-                          #Модуль перенаправления (когда пользователь обратится к корню сайта мы его перенаправим в public
-                          #Это защищает нас от доступа к остальным папкам юзерами
-                          RewriteEngine On
-                          #RegExp (.*) = все запросы, и направляем в public/(запрос)
-                          RewriteRule (.*) public/$1
+#Если запрос не идет на конкретный файл или папку (существующие)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+#то направляем запрос
+RewriteRule (.*) index,php?$1 [L, QSA]
