@@ -23,11 +23,11 @@ define("CONF", ROOT . '/config');
 define("LAYOUT", 'default');
 
 //http://udemy/index.php
-echo $app_path = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['PHP_SELF']}" .'<br>';
+$app_path = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['PHP_SELF']}" . '<br>';
 //http://udemy/
-echo $app_path = preg_replace("#[^/]+$#",'', $app_path).'<br>';
+$app_path = preg_replace("#[^/]+$#", '', $app_path) . '<br>';
 //http://udemy/
-echo $app_path = preg_replace("/public/",'', $app_path).'<br>';
+$app_path = preg_replace("/public/", '', $app_path) . '<br>';
 
 define("PATH", $app_path);
 define("ADMIN", PATH . '/admin');
