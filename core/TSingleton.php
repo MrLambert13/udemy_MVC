@@ -16,16 +16,13 @@ trait TSingleton
      */
     private static $instance;
 
-    //
-
     /**Заполняем объектом если его там нет, или возвращаем то что есть.
      * @return TSingleton
      */
     public static function instance() {
         if (self::$instance === null) {
-            self::$instance = new self();
+            self::$instance = new self;
         }
         return self::$instance;
     }
-
 }

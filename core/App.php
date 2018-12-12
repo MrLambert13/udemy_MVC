@@ -11,7 +11,7 @@ namespace core;
 
 class App
 {
-    //контейне  р для положения, состояния, хранилище в общем
+    //контейнер для положения, состояния, хранилище в общем
     public static $app;
 
     public function __construct() {
